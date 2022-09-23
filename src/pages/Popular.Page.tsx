@@ -1,5 +1,15 @@
+import { StyledContentContainer } from "../styles/StyledContentContainer"
+
 export default function Popular() {
     return (
-        <div>Popular Page</div>
+        <StyledContentContainer>
+            <div className="page-container">
+                <div className="content-container">
+                    <div className="shadow-box">
+                        <p>Popular Page</p>
+                    </div>
+                </div>
+            </div>
+        </StyledContentContainer>
     )
 }
