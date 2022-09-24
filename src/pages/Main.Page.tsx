@@ -9,7 +9,7 @@ export default function Main() {
     const [activePopular, setActivePopular] = useState("");
     const [searchText, setSearchText] = useState("");
     const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState(null);
+    const [error, setError] = useState("");
 
     useEffect(() => {
         setIsLoading(true);
@@ -20,7 +20,7 @@ export default function Main() {
         })
         .catch((error) => {
             setIsLoading(false);
-            setError(error);
+            setError(error.message);
         })
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
@@ -44,7 +44,7 @@ export default function Main() {
         })
         .catch((error) => {
             setIsLoading(false);
-            setError(error);
+            setError(error.message);
         })
     }
 

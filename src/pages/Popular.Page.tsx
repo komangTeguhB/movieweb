@@ -6,7 +6,7 @@ import api from "./../api";
 export default function Popular() {
     const [movies, setMovies] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState(null);
+    const [error, setError] = useState("");
 
     useEffect(() => {
         setIsLoading(true);

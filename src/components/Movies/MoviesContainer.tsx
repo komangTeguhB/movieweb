@@ -5,7 +5,7 @@ import loadingIndicator from "./../../assets/loading_icon.gif";
 type Props = {
     movies: object[];
     loading: boolean;
-    error?: any;
+    error?: string;
 }
 
 export default function Main(props: Props) {
@@ -28,7 +28,7 @@ export default function Main(props: Props) {
                          </>)
                          :
                           props.error ?
-                            <p>Error: {props.error}</p> :
+                            <h2 style={{color: "red"}}>Fetching error: {props.error}</h2> :
                                     props.movies.length > 0 ?
                                         renderMovieGrid(props.movies)
                                         : <></>
