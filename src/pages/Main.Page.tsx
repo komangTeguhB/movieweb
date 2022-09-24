@@ -6,22 +6,13 @@ import api from "./../api";
 export default function Main() {
     const [movies, setMovies] = useState([]);
     const [activeTopRated, setActiveTopRated] = useState("");
-    const [activePopular, setActivePopular] = useState("");
+    const [activePopular, setActivePopular] = useState("active");
     const [searchText, setSearchText] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState("");
 
     useEffect(() => {
-        setIsLoading(true);
-        api.getPopularMovies()
-        .then((data) => {
-            setIsLoading(false);
-            setMovies(data.results);
-        })
-        .catch((error) => {
-            setIsLoading(false);
-            setError(error.message);
-        })
+        executeGetPopularMovies();
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 

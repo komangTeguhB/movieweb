@@ -4,15 +4,20 @@ type Props = {
     title: string;
     imageUrl: string;
     keyItem: string;
+    date: string;
 }
 
 export default function Grid(props: Props) {
-    const { title, imageUrl, keyItem } = props;
+    const { title, imageUrl, keyItem, date } = props;
+    const localeDate = new Date(date);
     const imageBaseUrl = process.env.REACT_APP_IMAGE_MOVIE_URL;
     return (
        <StyledGrid>
           <div className="box-paper" id={keyItem} key={keyItem}>
-          <p className="grid-title"><b>{title}</b></p>
+          <p className="grid-title">
+            <b>{title}</b><br />
+            <b className="grid-subtitle">{localeDate.toLocaleDateString()}</b>
+          </p>
             <div
                 className="image-container"
                 id={"imgContainer-" + keyItem}

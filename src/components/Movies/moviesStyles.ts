@@ -68,7 +68,13 @@ font-style: normal;
   }
   
   .grid-title {
-    min-height: 7vh;
+    min-height: 12vh;
+    padding-top: 10px;
+    margin-bottom: 0px;
+  }
+  .grid-subtitle {
+    font-size: 20px;
+    color: ${colors.darkGray}
   }
   
   .image-container {

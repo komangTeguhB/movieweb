@@ -12,7 +12,7 @@ export default function Main(props: Props) {
     const renderMovieGrid = (items: object[]) => {
         return items.map((element: any, index: number) => (
                 <div className="grid-item">
-                    <Grid title={element.original_title} imageUrl={element.poster_path} keyItem={`grid-${index}`}></Grid>
+                    <Grid title={element.original_title} imageUrl={element.poster_path} date={element.release_date} keyItem={`grid-${index}`}></Grid>
                 </div>
             ))
     }
