@@ -24,7 +24,7 @@ export default function TopRated() {
     
     return (
         <div>
-            <h1>Top Rated Movies</h1>
+            <h2 style={{marginBottom: "0px"}}>Top Rated Movies</h2>
             <MoviesContainer movies={movies} loading={isLoading} error={error}></MoviesContainer>
         </div>
     )

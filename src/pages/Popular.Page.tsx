@@ -24,7 +24,7 @@ export default function Popular() {
     
     return (
         <div>
-            <h1>Popular Movies</h1>
+            <h2 style={{marginBottom: "0px"}}>Popular Movies</h2>
             <MoviesContainer movies={movies} loading={isLoading} error={error}></MoviesContainer>
         </div>
     )

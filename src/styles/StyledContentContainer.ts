@@ -125,7 +125,7 @@ export const StyledDetailMovieContainer = styled.div`
                         flex-wrap: wrap;
                         padding: 20px;
                         flex: 100%;
-
+                        border-bottom: 1px solid ${colors.lightGrey};
                         .left-container {
                           flex: 50%;
                           margin-top: 26px;
@@ -138,6 +138,69 @@ export const StyledDetailMovieContainer = styled.div`
                           flex: 100%;
                         }
                     }
+
+                    .input-comment-container {
+                        display: flex;
+                        flex: 100%;
+                        justify-content: center;
+                        flex-direction: column;
+                        padding: 90px;
+                        padding-top: 20px;
+                        padding-bottom: 20px;
+                    }
+
+                    .input-comment-style {
+                        min-height: 60px;
+                        font-size: 20px;
+                        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+                        border-radius: 6px;
+                        border: 1px solid ${colors.lightGrey}
+                    }
+
+                    .submit-comment-style {
+                        margin-top: 10px;
+                        height: 35px;
+                        font-size: 20px;
+                        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+                        border-radius: 6px;
+                        border: 1px solid ${colors.lightGrey}
+                    }
+
+                    .submit-comment-style:hover {
+                        background-color: ${colors.blackhole};
+                        color: ${colors.white};
+                    }
+
+                    .comments-container {
+                        display: flex;
+                        flex: 100%;
+                        justify-content: center;
+                        flex-direction: column;
+                        
+                        .comments-user-container {
+                                display: flex;
+                                text-align: left;
+                                flex-direction: column;
+                                padding: 50px;
+                                padding-top: 10px;
+                                padding-bottom: 10px;
+                                border-bottom: 1px solid ${colors.lightGrey};
+
+                                .comments-user-name {
+                                  margin: 5px;
+                                }
+                                }
+                                .comments-user-date {
+                                  margin: 5px;
+                                }
+                                .comments-user-comment {
+                                        margin: 5px;
+                                }
+                        }
+                    }
+
+                    
+                }
                     
             }
     }

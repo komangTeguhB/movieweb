@@ -47,7 +47,7 @@ export const Nav = styled.nav`
   background-color: #fdfdfdfa;
   align-items: center;
   position: relative;
-
+  box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
   @media (max-width: 678px) {
     width: 100vw;
   }
@@ -84,7 +84,7 @@ export const Ul = styled.ul<INav>`
     text-transform: none;
     color: #000;
     cursor: pointer;
-
+    padding: 7px;
     &:hover {
       color: #0DADEA;
     }
@@ -120,9 +120,9 @@ export const Ul = styled.ul<INav>`
 `
 
 export const Logo = styled.img`
-  margin: 20px 50px 20px 7%;
+  margin: 20px 50px 20px 3%;
   width: 160px;
-  height: 70px;
+  height: 55px;
   object-fit: contain;
 
   @media (max-width: 1250px) {

@@ -43,16 +43,18 @@ export default function Main() {
     }
 
     function searchMovie(val: string) {
-        setIsLoading(true);
-        api.searchMovies(val)
-        .then((data) => {
-            setIsLoading(false);
-            setMovies(data.results);
-        })
-        .catch((error) => {
-            setIsLoading(false);
-            setError(error.message);
-        })
+        if (val !== "") {
+            setIsLoading(true);
+            api.searchMovies(val)
+            .then((data) => {
+                setIsLoading(false);
+                setMovies(data.results);
+            })
+            .catch((error) => {
+                setIsLoading(false);
+                setError(error.message);
+            })
+         }
     }
 
     function handleFilterClicked(val: string) {

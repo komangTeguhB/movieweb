@@ -47,7 +47,13 @@ export default function Detail() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
-    const handleComment = () => {
+    function handleComment() {
+       if (localComment !== "") {
+        storeComment();
+       }
+    }
+
+    function storeComment() {
         const now = new Date();
         const newObj =  {
             movieId: movieId,
@@ -59,11 +65,12 @@ export default function Detail() {
         };
         localInteractions.push(newObj);
         dispatch({ type: "SET_INTERACTIONS", value: localInteractions });
+        setLocalComment("");
     }
 
     return (
         <>
-        <h1>Movie Detail Page </h1>
+        <h2 style={{marginBottom: "0px"}}>Movie Detail</h2>
         <StyledDetailMovieContainer>
                 <div className="page-container">
                     <div className="content-container">
@@ -93,7 +100,7 @@ export default function Detail() {
                                                     <p><b>Title: </b>{detail.title}</p>
                                                     <p><b>Original Title: </b>{detail.original_title}</p>
                                                     <p><b>Release Date: </b>{detail.release_date}</p>
-                                                    <p><b>Description: </b>{detail.overview}</p>
+                                                    <p style={{paddingRight: "50px"}}><b>Description: </b>{detail.overview}</p>
                                                     <p><b>Genres:</b>
                                                         {detail.genres.map((element, index) => (
                                                             <p key={`gnere-${index}`} style={{marginLeft: "10px"}}>- {element.name}</p>    
@@ -104,21 +111,20 @@ export default function Detail() {
                                         </>
                                     )
                             }
-                            <div>
-                                <input onChange={(e) => setLocalComment(e.target.value)}></input>
-                                <button onClick={() => handleComment()}>Submit</button>
+                            <div className="input-comment-container">
+                                <textarea className="input-comment-style" rows={4} value={localComment} onChange={(e) => setLocalComment(e.target.value)} placeholder="Write a comment..."></textarea>
+                                <button className="submit-comment-style" onClick={() => handleComment()}>Submit</button>
                             </div>
-                            <div>
+                            <h3>Comments:</h3>
+                            <div className="comments-container">
                                 {
                                     localInteractions.length > 0 ?
                                     localInteractions.filter((el: any) => el.movieId === movieId).map((element: any, index: number) => (
-                                        <>
-                                            <p key={`interactions1-${index}` }>Name: {element.name}</p>
-                                            <p key={`interactions2-${index}` }>Email: {element.email}</p>
-                                            <p key={`interactions3-${index}` }>Date: {element.date}</p>
-                                            <p key={`interactions4-${index}` }>Time: {element.time}</p>
-                                            <p key={`interactions5-${index}` }>Comment: {element.comment}</p>
-                                        </>
+                                        <div className="comments-user-container">
+                                            <p key={`interactions1-${index}` } className="comments-user-name">{element.name} ({element.email})</p>
+                                            <p key={`interactions3-${index}` } className="comments-user-date">{element.date} {element.time}</p>
+                                            <p key={`interactions5-${index}` } className="comments-user-comment">{element.comment}</p>
+                                        </div>
                                     ))
                                     :
                                     <></>
