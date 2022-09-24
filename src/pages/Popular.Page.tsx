@@ -7,6 +7,7 @@ export default function Popular() {
     const [movies, setMovies] = useState([]);
     const baseUrl = process.env.REACT_APP_API_BASE_URL;
     const api_key = process.env.REACT_APP_MOVIEDB_KEY;
+    
     useEffect(() => {
         fetch(`${baseUrl}/popular?api_key=${api_key}`, getDefaultOptions)
         .then((response: any) => {
