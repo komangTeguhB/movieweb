@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { StyledDetailMovieContainer } from "../styles/StyledContentContainer";
 import loadingIndicator from "./../assets/loading_icon.gif";
 import backdropBroken from "./../assets/backdrop_broken.jpg";
 import api from "./../api";
+import { globalContext } from "../store/GlobalStore";
 
 export default function Detail() {
+    const params = useParams();
     const [isLoading, setIsLoading] = useState(false);
     const [detail, setDetail] = useState({
         backdrop_path: "",
@@ -25,24 +27,40 @@ export default function Detail() {
         genres: [{id: "", name: ""}],
     });
     const [error, setError] = useState("");
-    const params = useParams();
+    const [localComment, setLocalComment] = useState("");
+    const [movieId,] = useState(params.movieId ? parseInt(params.movieId) : 0 );
     const imageBaseUrl = process.env.REACT_APP_IMAGE_MOVIE_URL;
+    const { globalState, dispatch } = useContext(globalContext);
+    let localInteractions = globalState.interactions;
 
     useEffect(() => {
-        if (params.movieId) {
-            setIsLoading(true);
-            api.getMovieDetail(parseInt(params.movieId))
-            .then((data) => {
-                setIsLoading(false);
-                setDetail(data);
-            })
-            .catch((error) => {
-                setIsLoading(false);
-                setError(error.message);
-            })
-        }
+        setIsLoading(true);
+        api.getMovieDetail(movieId)
+        .then((data) => {
+            setIsLoading(false);
+            setDetail(data);
+        })
+        .catch((error) => {
+            setIsLoading(false);
+            setError(error.message);
+        })
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
+
+    const handleComment = () => {
+        const now = new Date();
+        const newObj =  {
+            movieId: movieId,
+            name: "Komang",
+            email: "KomangCucokMeong@gmail.com",
+            date: now.toLocaleDateString(),
+            time: now.toLocaleTimeString(),
+            comment: localComment,
+        };
+        localInteractions.push(newObj);
+        dispatch({ type: "SET_INTERACTIONS", value: localInteractions });
+    }
+
     return (
         <>
         <h1>Movie Detail Page </h1>
@@ -86,6 +104,26 @@ export default function Detail() {
                                         </>
                                     )
                             }
+                            <div>
+                                <input onChange={(e) => setLocalComment(e.target.value)}></input>
+                                <button onClick={() => handleComment()}>Submit</button>
+                            </div>
+                            <div>
+                                {
+                                    localInteractions.length > 0 ?
+                                    localInteractions.filter((el: any) => el.movieId === movieId).map((element: any, index: number) => (
+                                        <>
+                                            <p key={`interactions1-${index}` }>Name: {element.name}</p>
+                                            <p key={`interactions2-${index}` }>Email: {element.email}</p>
+                                            <p key={`interactions3-${index}` }>Date: {element.date}</p>
+                                            <p key={`interactions4-${index}` }>Time: {element.time}</p>
+                                            <p key={`interactions5-${index}` }>Comment: {element.comment}</p>
+                                        </>
+                                    ))
+                                    :
+                                    <></>
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>

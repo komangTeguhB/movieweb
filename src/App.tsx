@@ -2,15 +2,19 @@ import './App.css';
 import { BrowserRouter } from "react-router-dom";
 import Navigation from './components/Navigation/Navbar';
 import Routers from './Routers';
+import { GlobalStore } from "./store/GlobalStore";
+
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Navigation />
-        <Routers />
-      </div>
-    </BrowserRouter>
+    <GlobalStore>
+      <BrowserRouter>
+        <div className="App">
+          <Navigation />
+          <Routers />
+        </div>
+      </BrowserRouter>
+    </GlobalStore>
   );
 }
 
