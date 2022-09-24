@@ -25,14 +25,30 @@ export default function Main() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
-    function handleFilterClicked(val: string) {
-        if (val === "topRated") {
-            setActiveTopRated(activeTopRated === "" ? "active" : "");
-            setActivePopular("");
-        } else {
-            setActivePopular(activePopular === "" ? "active" : "");
-            setActiveTopRated("");
-        }
+    function executeGetTopRatedMovies() {
+        setIsLoading(true);
+        api.getTopRatedMovies()
+        .then((data) => {
+            setIsLoading(false);
+            setMovies(data.results);
+        })
+        .catch((error) => {
+            setIsLoading(false);
+            setError(error.message);
+        })
+    }
+
+    function executeGetPopularMovies() {
+        setIsLoading(true);
+        api.getPopularMovies()
+        .then((data) => {
+            setIsLoading(false);
+            setMovies(data.results);
+        })
+        .catch((error) => {
+            setIsLoading(false);
+            setError(error.message);
+        })
     }
 
     function searchMovie(val: string) {
@@ -47,6 +63,20 @@ export default function Main() {
             setError(error.message);
         })
     }
+
+    function handleFilterClicked(val: string) {
+        setSearchText("");
+        if (val === "topRated") {
+            setActiveTopRated(activeTopRated === "" ? "active" : "");
+            setActivePopular("");
+            executeGetTopRatedMovies();
+        } else {
+            setActivePopular(activePopular === "" ? "active" : "");
+            setActiveTopRated("");
+            executeGetPopularMovies();
+        }
+    }
+
 
     function handleOnKeypress(e: React.KeyboardEvent<any>) {
         if (e.key === "Enter") {

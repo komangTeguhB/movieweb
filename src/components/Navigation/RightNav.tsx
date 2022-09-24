@@ -27,20 +27,6 @@ function RightNav(props: Props) {
         end>
           <li>Main</li>
         </NavLink>
-        <NavLink to="/detail"
-            style={
-                ({isActive}) => (
-                isActive 
-                ? {
-                    fontWeight: "bold",
-                    color: "#0DADEA"
-                }
-                :{}
-                )
-            }
-        >
-          <li>Movie Detail</li>
-        </NavLink>
         <NavLink to="/popular"
             style={
                 ({isActive}) => (
