@@ -34,6 +34,14 @@ const api = {
                 }
                 throw new Error(`${response.status} ${response.statusText}`);
         }),
+    getMovieDetail: (movieId: number) => 
+        fetch(`${baseUrl}/movie/${movieId}?api_key=${api_key}`, getDefaultOptions)
+            .then((response: any) => {
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error(`${response.status} ${response.statusText}`);
+        }),
 }
 
 export default api;

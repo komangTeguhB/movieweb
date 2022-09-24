@@ -9,7 +9,7 @@ export default function Routers() {
     return (
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/detail" element={<Detail/>} />
+          <Route path="/detail/:movieId" element={<Detail/>} />
           <Route path="/popular" element={<Popular />} />
           <Route path="/topRated" element={<TopRated />} />
           <Route path="/user" element={<User />} />

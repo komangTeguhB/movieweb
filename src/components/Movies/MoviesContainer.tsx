@@ -12,7 +12,7 @@ export default function Main(props: Props) {
     const renderMovieGrid = (items: object[]) => {
         return items.map((element: any, index: number) => (
                 <div className="grid-item">
-                    <Grid title={element.original_title} imageUrl={element.poster_path} date={element.release_date} keyItem={`grid-${index}`}></Grid>
+                    <Grid movieId={element.id} title={element.original_title} imageUrl={element.poster_path} date={element.release_date} keyItem={`grid-${index}`}></Grid>
                 </div>
             ))
     }
@@ -24,7 +24,7 @@ export default function Main(props: Props) {
                     <div className="shadow-box">
                         {props.loading ? 
                          (<>
-                            <img src={loadingIndicator} alt='loading'/>
+                            <img src={loadingIndicator} alt="loading"/>
                          </>)
                          :
                           props.error ?
