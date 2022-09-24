@@ -41,6 +41,10 @@ export const StyledContentContainer = styled.div`
                 border-radius: 6px;
                 border: 1px solid ${colors.lightGrey}
         }
+        .popular-btn-style.active {
+                background-color: ${colors.blackhole};
+                color: ${colors.lightGrey};
+        }
         .popular-btn-style:hover {
                 background-color: ${colors.blackhole};
                 color: ${colors.white};

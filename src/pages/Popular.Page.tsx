@@ -1,26 +1,23 @@
 import { useEffect, useState } from "react";
 import MoviesContainer from "./../components/Movies/MoviesContainer";
-import { getDefaultOptions } from "./../api";
+import api from "./../api";
 
 
 export default function Popular() {
     const [movies, setMovies] = useState([]);
-    const baseUrl = process.env.REACT_APP_API_BASE_URL;
-    const api_key = process.env.REACT_APP_MOVIEDB_KEY;
-    
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
+
     useEffect(() => {
-        fetch(`${baseUrl}/popular?api_key=${api_key}`, getDefaultOptions)
-        .then((response: any) => {
-            if (response.ok) {
-                return response.json();
-            }
-            throw response;
-        })
+        setIsLoading(true);
+        api.getPopularMovies()
         .then((data) => {
+            setIsLoading(false);
             setMovies(data.results);
         })
         .catch((error) => {
-            console.log(error);
+            setIsLoading(false);
+            setError(error.message);
         })
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
@@ -28,7 +25,7 @@ export default function Popular() {
     return (
         <div>
             <h1>Popular Movies</h1>
-            <MoviesContainer movies={movies}></MoviesContainer>
+            <MoviesContainer movies={movies} loading={isLoading} error={error}></MoviesContainer>
         </div>
     )
 }
