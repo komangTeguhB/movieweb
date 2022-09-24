@@ -5,4 +5,5 @@ export const colors = {
     blackhole: "#3e4450",
     darkText: "#707882",
     error: "#BD0202",
+    lightGrey:"#F4F4F4",
   };
