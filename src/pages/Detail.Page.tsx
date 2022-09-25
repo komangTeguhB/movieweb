@@ -28,12 +28,18 @@ export default function Detail() {
     });
     const [error, setError] = useState("");
     const [localComment, setLocalComment] = useState("");
+    const [isFavorited, setIsFavorited] = useState(false);
     const [movieId,] = useState(params.movieId ? parseInt(params.movieId) : 0 );
     const imageBaseUrl = process.env.REACT_APP_IMAGE_MOVIE_URL;
     const { globalState, dispatch } = useContext(globalContext);
     let localInteractions = globalState.interactions;
+    let localFavoriteMovies = globalState.favoriteMovies;
 
     useEffect(() => {
+        const movieIsFavorited = localFavoriteMovies.findIndex((element: any) => element.id === movieId);
+        if (movieIsFavorited > -1) {
+            setIsFavorited(true);
+        }
         setIsLoading(true);
         api.getMovieDetail(movieId)
         .then((data) => {
@@ -67,6 +73,18 @@ export default function Detail() {
         dispatch({ type: "SET_INTERACTIONS", value: localInteractions });
         setLocalComment("");
     }
+
+    function handleAddToFavorite() {
+        const newObj =  {
+           original_title: detail.original_title,
+           poster_path: detail.poster_path,
+           release_date: detail.release_date,
+           id: movieId,
+         };
+         localFavoriteMovies.push(newObj);
+         dispatch({ type: "SET_FAVORITE", value: localFavoriteMovies });
+         setIsFavorited(true);
+     }
 
     return (
         <StyledDetailedContainer>
@@ -111,6 +129,7 @@ export default function Detail() {
                                                             <p key={`gnere-${index}`} style={{marginLeft: "10px"}}>- {element.name}</p>    
                                                         ))}
                                                     </p>
+                                                    {!isFavorited && <button className="addFavorite-btn-style" onClick={() => handleAddToFavorite()}>Add to favorite</button>}
                                                 </div>
                                             </div>
                                         </>

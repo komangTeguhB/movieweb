@@ -167,6 +167,21 @@ export const StyledDetailedContainer = styled.div`
                         .right-container {
                           flex: 50%;
                           text-align: left;
+
+                          .addFavorite-btn-style {
+                            min-width: 250px;
+                            min-height: 60px;
+                            margin-right: 10px;
+                            margin-bottom: 10px;
+                            padding: 10px;
+                            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+                            border-radius: 6px;
+                            border: 1px solid ${colors.lightGrey}
+                          }
+                          .addFavorite-btn-style:hover {
+                              background-color: ${colors.blackhole};
+                              color: ${colors.white};
+                          }
                         }
                         .loading-container{
                           flex: 100%;
