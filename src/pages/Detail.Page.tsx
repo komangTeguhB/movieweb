@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { StyledCommonContainer } from "../styles/StyledContentContainer";
+import { StyledDetailedContainer } from "../styles/StyledContentContainer";
 import loadingIndicator from "./../assets/loading_icon.gif";
 import backdropBroken from "./../assets/backdrop_broken.jpg";
 import api from "./../api";
@@ -69,9 +69,14 @@ export default function Detail() {
     }
 
     return (
-        <>
-        <h2 style={{marginBottom: "0px"}}>Movie Detail</h2>
-        <StyledCommonContainer>
+        <StyledDetailedContainer>
+                <div className="top-page-container">
+                    <div className="left-container">
+                        <h2 style={{marginBottom: "0px"}}>Movie Detail</h2>
+                    </div>
+                    <div className="right-container">
+                    </div>
+                </div>
                 <div className="page-container">
                     <div className="content-container">
                         <div className="shadow-box">
@@ -133,7 +138,6 @@ export default function Detail() {
                         </div>
                     </div>
                 </div>
-        </StyledCommonContainer>
-        </>
+        </StyledDetailedContainer>
     )
 }

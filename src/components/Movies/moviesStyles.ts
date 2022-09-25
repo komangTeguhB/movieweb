@@ -10,7 +10,7 @@ export const StyledMoviesContainer = styled.div`
     font-style: normal;
     color: ${colors.blackhole};
     flex-wrap: wrap;
-    
+
     .content-container {
             flex: 100%;
             padding-top: 15px;
@@ -24,7 +24,6 @@ export const StyledMoviesContainer = styled.div`
                     flex-wrap: wrap;
                     width: 100%;
                     background-color: ${colors.white};
-                    text-align: center;
                     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
                     border-radius: 6px;
                     padding: 1%;
@@ -72,6 +71,10 @@ font-style: normal;
     min-height: 12vh;
     padding-top: 10px;
     margin-bottom: 0px;
+
+    b { 
+      line-height: 0px;
+    }
   }
   .grid-subtitle {
     font-size: 20px;
@@ -81,4 +84,18 @@ font-style: normal;
   .image-container {
     padding-bottom: 10px;
   } 
+
+  .addFavorite-btn-style {
+    min-width: 120px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 6px;
+    border: 1px solid ${colors.lightGrey}
+  }
+  .addFavorite-btn-style:hover {
+      background-color: ${colors.blackhole};
+      color: ${colors.white};
+  }
 `

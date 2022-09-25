@@ -2,6 +2,7 @@ import { Dispatch } from 'react';
 
 export interface GlobalStateInterface {
   interactions: object[];
+  favoriteMovies: object[];
 }
 
 export type ActionType = {

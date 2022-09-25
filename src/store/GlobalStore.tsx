@@ -51,6 +51,7 @@ export const globalContext = createContext({} as ContextType);
 
 export const initialState: GlobalStateInterface = {
     interactions: [],
+    favoriteMovies: [],
 }
 
 function initializeState() {
