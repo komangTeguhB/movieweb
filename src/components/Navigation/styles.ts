@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import { colors } from "../../colors";
 interface INav {
   open: boolean;
   href?: string;
@@ -22,7 +22,7 @@ export const StyledBurger = styled.div<INav>`
   div {
     width: 2rem;
     height: 0.25rem;
-    background-color: ${(props) => props.open ? '#000' : '#000'};
+    background-color: ${(props) => props.open ? `${colors.black}` : `${colors.black}`};
     border-radius: 10px;
     transform-origin: 1px;
     transition: all 0.3s linear;
@@ -44,12 +44,17 @@ export const Nav = styled.nav`
   height: 100%;
   display: flex;
   justify-content: space-between;
-  background-color: #fdfdfdfa;
+  background-color: ${colors.whiteNav};
   align-items: center;
   position: relative;
   box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
+
   @media (max-width: 678px) {
-    width: 100vw;
+    width: 153vw;
+  }
+
+  @media (max-width: 414px) {
+    width: 146vw;
   }
 
   span {
@@ -76,17 +81,17 @@ export const Ul = styled.ul<INav>`
   margin-top: 0px;
   align-items: center;
   font-size: 18px;
-  height: 110px;
+  height: 118px;
   margin-left: 20px;
 
   a {
     text-decoration: none;
     text-transform: none;
-    color: #000;
+    color: ${colors.black};
     cursor: pointer;
     padding: 7px;
     &:hover {
-      color: #0DADEA;
+      color: ${colors.blueActive};
     }
   }
 
@@ -96,7 +101,7 @@ export const Ul = styled.ul<INav>`
 
   @media (max-width: 768px) {
     flex-flow: column nowrap;
-    background-color: #fdfdfdfa;
+    background-color: ${colors.whiteNav};
     position: fixed;
     transform: ${(props) => props.open ? 'translateX(0)' : 'translateX(100%)'};
     top: -16px;
@@ -109,11 +114,11 @@ export const Ul = styled.ul<INav>`
     justify-content: normal;
 
     li {
-      color: #000;
+      color: ${colors.black};
       margin-right: 34px;
 
       &:hover {
-        color: #0DADEA;
+        color: ${colors.blueActive};
       }
     }
   }

@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { StyledDetailMovieContainer } from "../styles/StyledContentContainer";
+import { StyledCommonContainer } from "../styles/StyledContentContainer";
 import loadingIndicator from "./../assets/loading_icon.gif";
 import backdropBroken from "./../assets/backdrop_broken.jpg";
 import api from "./../api";
@@ -71,7 +71,7 @@ export default function Detail() {
     return (
         <>
         <h2 style={{marginBottom: "0px"}}>Movie Detail</h2>
-        <StyledDetailMovieContainer>
+        <StyledCommonContainer>
                 <div className="page-container">
                     <div className="content-container">
                         <div className="shadow-box">
@@ -133,7 +133,7 @@ export default function Detail() {
                         </div>
                     </div>
                 </div>
-        </StyledDetailMovieContainer>
+        </StyledCommonContainer>
         </>
     )
 }

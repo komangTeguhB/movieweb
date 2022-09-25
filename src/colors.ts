@@ -6,4 +6,7 @@ export const colors = {
     darkText: "#707882",
     error: "#BD0202",
     lightGrey:"#F4F4F4",
+    blueActive: "#0DADEA",
+    black: "#000000",
+    whiteNav: "#fdfdfdfa"
   };

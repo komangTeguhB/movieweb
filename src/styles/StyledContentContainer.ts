@@ -2,17 +2,22 @@ import styled from "styled-components";
 import { colors } from "../colors";
 
 export const StyledContentContainer = styled.div`
+font-family: "Roboto";
+font-style: normal;
+
 .top-filter-container {    
     padding: 30px;
+    padding-top: 0px;
     padding-bottom: 0px;
     display: flex;
     flex-wrap: wrap;
     text-align: left;
-        
+
     .button-filters {
         flex: 10%;
         text-align: right;
-
+        padding-top: 30px;
+        
         .topRated-btn-style {
                 min-width: 120px;
                 margin-right: 10px;
@@ -54,6 +59,7 @@ export const StyledContentContainer = styled.div`
 
     .input-filters {
         flex: 52%;
+        padding-top: 30px;
 
         .search-btn-style {
                 min-width: 120px;
@@ -80,18 +86,19 @@ export const StyledContentContainer = styled.div`
 }
 `;
 
-export const StyledDetailMovieContainer = styled.div`
+export const StyledCommonContainer = styled.div`
 .page-container {    
     width: 100%;
     height: auto;
     display: flex;
+    flex: wrap;
     font-family: "Roboto";
     font-style: normal;
     font-size: 22px;
     color: ${colors.blackhole};
 
     .content-container {
-            width: 100%;
+            flex: 100%;
             padding-top: 15px;
             padding-left: 30px;
             padding-right: 30px;

@@ -1,8 +1,10 @@
-import { StyledContentContainer } from "../styles/StyledContentContainer"
+import { StyledCommonContainer } from "../styles/StyledContentContainer"
 
 export default function User() {
     return (
-        <StyledContentContainer>
+        <>
+        <h2 style={{marginBottom: "0px"}}>User</h2>
+        <StyledCommonContainer>
             <div className="page-container">
                 <div className="content-container">
                     <div className="shadow-box">
@@ -10,6 +12,7 @@ export default function User() {
                     </div>
                 </div>
             </div>
-        </StyledContentContainer>
+        </StyledCommonContainer>
+        </>
     )
 }

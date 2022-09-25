@@ -9,9 +9,10 @@ export const StyledMoviesContainer = styled.div`
     font-family: "Roboto";
     font-style: normal;
     color: ${colors.blackhole};
-
+    flex-wrap: wrap;
+    
     .content-container {
-            width: 100%;
+            flex: 100%;
             padding-top: 15px;
             padding-left: 30px;
             padding-right: 30px;

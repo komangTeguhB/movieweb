@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import * as styled from './styles';
 import Logo from '../../assets/logo.png';
+import { colors } from "../../colors";
 
 
 type Props = {
@@ -8,6 +9,11 @@ type Props = {
 }
 
 function RightNav(props: Props) {
+  const activeStyle = {
+    fontWeight: "bold",
+    color: colors.blueActive,
+    borderBottom: `5px solid ${colors.blueActive}`
+  }
   return (
     <>
       <styled.Ul open={props.open}>
@@ -17,10 +23,7 @@ function RightNav(props: Props) {
             style={
                 ({isActive}) => (
                 isActive 
-                ? {
-                    fontWeight: "bold",
-                    color: "#0DADEA"
-                }
+                ? activeStyle
                 :{}
                 )
             }
@@ -31,10 +34,7 @@ function RightNav(props: Props) {
             style={
                 ({isActive}) => (
                 isActive 
-                ? {
-                    fontWeight: "bold",
-                    color: "#0DADEA"
-                }
+                ? activeStyle
                 :{}
                 )
             }
@@ -45,10 +45,7 @@ function RightNav(props: Props) {
           style={
                 ({isActive}) => (
                 isActive 
-                ? {
-                    fontWeight: "bold",
-                    color: "#0DADEA"
-                }
+                ? activeStyle
                 :{}
                 )
             }
@@ -59,10 +56,7 @@ function RightNav(props: Props) {
           style={
                 ({isActive}) => (
                 isActive 
-                ? {
-                    fontWeight: "bold",
-                    color: "#0DADEA"
-                }
+                ? activeStyle
                 :{}
                 )
             }
