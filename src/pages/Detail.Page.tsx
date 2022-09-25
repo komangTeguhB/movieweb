@@ -57,8 +57,8 @@ export default function Detail() {
         const now = new Date();
         const newObj =  {
             movieId: movieId,
-            name: "Komang",
-            email: "KomangCucokMeong@gmail.com",
+            name: "Aubameong",
+            email: "Aubameong@gmail.com",
             date: now.toLocaleDateString(),
             time: now.toLocaleTimeString(),
             comment: localComment,
