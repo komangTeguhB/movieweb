@@ -2,20 +2,12 @@ import React, { createContext, ReactElement, ReactNode, useEffect, useReducer, u
 import Reducer from './reducer';
 import { ContextType, GlobalStateInterface } from './types';
 
-/**
- * React Context-based Global Store with a reducer
- * and persistent saves to sessionStorage/localStorage
- **/
 export function GlobalStore({ children }: { children: ReactNode }): ReactElement {
   const [globalState, dispatch] = useReducer(Reducer, initializeState());
   const initialRenderGlobalState = useRef(true);
   const initialRenderPersistenceType = useRef(true);
 
   useEffect(() => {
-    /*
-     populate either sessionStorage or localStorage
-     data from globalState based on persistenceType
-    */
     if (initialRenderGlobalState.current) {
       initialRenderGlobalState.current = false;
       return;
@@ -29,9 +21,6 @@ export function GlobalStore({ children }: { children: ReactNode }): ReactElement
   }, [globalState]);
 
   useEffect(() => {
-    /*
-     purge sessionStorage or localStorage when either is selected
-    */
     if (initialRenderPersistenceType.current) {
       initialRenderPersistenceType.current = false;
       return;
@@ -55,11 +44,6 @@ export const initialState: GlobalStateInterface = {
 }
 
 function initializeState() {
-  /*
-   the order in which the data is compared is very important;
-   first try to populate the state from Storage if not return initialState
-  */
-
   if (typeof (Storage) !== 'undefined') {
   } else {
     throw new Error('You need to enable Storage to run this app.');
