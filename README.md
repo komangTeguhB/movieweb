@@ -4,6 +4,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 PLEASE RUN `npm install` FIRST. ENJOY.
 
+![app screenshot1](https://raw.githubusercontent.com/komangTeguhB/movieweb/main/src/assets/screenshot1.jpeg)
+
+![app screenshot2](https://raw.githubusercontent.com/komangTeguhB/movieweb/main/src/assets/screenshot2.jpeg)
+
 ## Available Scripts
 
 In the project directory, you can run:
